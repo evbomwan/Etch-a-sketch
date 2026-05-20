@@ -21,8 +21,15 @@ function getUserInput (){
         let green = Math.floor(Math.random() * 255);
         let blue = Math.floor(Math.random() * 255);
         let color = `rgb(${red}, ${green}, ${blue})`
+        
+        let opacity = 0;
         div.addEventListener("mouseenter", ()=>{
-        div.style.backgroundColor = color
+       opacity += 0.1;
+        if (opacity > 1) {
+            opacity = 1;
+        }
+
+        div.style.backgroundColor = `rgba(${red}, ${green}, ${blue}, ${opacity})`;
     })
     div.addEventListener("mouseleave", ()=>{
         div.style.backgroundColor = ""
